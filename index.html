@@ -1,0 +1,154 @@
+<html>
+        <head><title>Downloaded HTML</title></head>
+        <body>
+            <pre style="white-space: pre-wrap; word-wrap: break-word;"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dana’s 18th Birthday Invitation</title>
+
+  <style>
+    /* Load Xiomara font */
+    @font-face {
+      font-family: "Xiomara";
+      src: url("Xiomara-Script.ttf") format("truetype");
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('royal-palace-bg.jpg') no-repeat center/cover;
+      font-family: "Xiomara", serif;
+      overflow: hidden;
+    }
+
+    /* Sparkles */
+    .sparkles {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('sparkles.png') repeat;
+      animation: sparkleMove 12s linear infinite;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    @keyframes sparkleMove {
+      from { background-position: 0 0; }
+      to { background-position: 1200px 1200px; }
+    }
+
+    /* Envelope */
+    .envelope {
+      width: 220px;
+      height: 140px;
+      background: url('elegant-envelope.png') no-repeat center/contain;
+      cursor: pointer;
+      transition: transform 0.6s;
+      z-index: 2;
+    }
+
+    .envelope.open {
+      transform: rotateX(180deg);
+    }
+
+    /* Invitation */
+    .invitation {
+      display: none;
+      text-align: center;
+      color: black;
+      text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+      max-width: 700px;
+    }
+
+    .invitation img {
+      width: 280px;
+      border-radius: 18px;
+      box-shadow: 0 0 25px gold;
+      margin-bottom: 15px;
+    }
+
+    /* Typing effect */
+    .line {
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 2px solid black;
+      width: 0;
+      margin: 8px auto;
+      animation: typing 2.5s steps(40, end) forwards, blink 0.7s step-end infinite;
+    }
+
+    .line:nth-child(1) { animation-delay: 0.5s; }
+    .line:nth-child(2) { animation-delay: 3s; }
+    .line:nth-child(3) { animation-delay: 5.5s; }
+    .line:nth-child(4) { animation-delay: 7.5s; }
+
+    @keyframes typing {
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    .container {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🎵 Background Music -->
+  <audio id="bg-music" loop>
+    <source src="million-dreams.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="sparkles"></div>
+
+  <div class="container">
+    <!-- Envelope -->
+    <div class="envelope" id="envelope"></div>
+
+    <!-- Invitation -->
+    <div class="invitation" id="invitation">
+      <img src="dana-photo.png" alt="Dana">
+
+      <h1 class="line">Dana is turning 18!!</h1>
+      <p class="line">We happily invite you to her birthday party!</p>
+      <p class="line">May 19, 2026</p>
+      <p class="line">Florenceville Private Resort & Events Place</p>
+    </div>
+  </div>
+
+  <script>
+    const envelope = document.getElementById("envelope");
+    const invitation = document.getElementById("invitation");
+    const music = document.getElementById("bg-music");
+
+    // 🎵 Play music on first click anywhere
+    document.addEventListener("click", function () {
+      music.play();
+    }, { once: true });
+
+    // Envelope animation
+    envelope.addEventListener("click", () => {
+      envelope.classList.add("open");
+
+      setTimeout(() => {
+        envelope.style.display = "none";
+        invitation.style.display = "block";
+      }, 600);
+    });
+  </script>
+
+</body>
+</html></pre>
+        </body>
+    </html>

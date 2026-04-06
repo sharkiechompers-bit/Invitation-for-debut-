@@ -6,9 +6,10 @@
   <title>Dana’s 18th Birthday Invitation</title>
 
   <style>
+    /* 1. UPDATED FONT (Matching your filename) */
     @font-face {
-      font-family: "Xiomara";
-      src: url("./Xiomara-Script.ttf") format("truetype");
+      font-family: "Brush Script MT";
+      src: url("./BRUSHSCI.TTF") format("truetype");
     }
 
     body {
@@ -18,26 +19,22 @@
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      /* Background fix: ensuring it fills the screen */
       background: url('red-roses-bg.jpg') no-repeat center center fixed;
       background-size: cover; 
-      font-family: "Xiomara", serif;
-      color: #ffffff; /* White text */
+      font-family: "Brush Script MT", cursive; /* Updated family */
+      color: #ffffff;
       overflow-x: hidden;
     }
 
-    /* Changed Butterflies to Falling Petals */
+    /* Falling Petals */
     .petals {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: url('petals.png') repeat;
       animation: petalFall 25s linear infinite;
-      
-      /* ADD THESE TWO LINES HERE */
-      opacity: 0.3;          /* Makes the petals lighter so you can see the roses */
-      filter: brightness(1.5); /* Makes the petals themselves pop more */
-      
+      opacity: 0.3;
+      filter: brightness(1.5);
       pointer-events: none;
       z-index: 10;
     }
@@ -57,12 +54,23 @@
       padding-bottom: 100px;
     }
 
+    /* 2. ADDED FADE-IN ANIMATION FOR INTRO */
+    #intro-section {
+      animation: fadeInIntro 2s ease-out forwards;
+    }
+
+    @keyframes fadeInIntro {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 3. BIGGER ENVELOPE */
     .envelope {
-      width: 180px;
-      height: 120px;
+      width: 280px;  /* Made even bigger for impact */
+      height: 200px;
       background: url('red-env.png') no-repeat center/contain;
       cursor: pointer;
-      margin: 40px auto 10px auto;
+      margin: 20px auto; 
       transition: transform 0.8s ease-out, opacity 0.5s;
     }
 
@@ -72,9 +80,15 @@
     }
 
     .invite-text {
-      font-size: 1.8rem;
+      font-size: 2rem; /* Slightly larger text */
       color: #ffffff;
+      margin-bottom: 10px;
       animation: pulse 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
 
     .invitation {
@@ -83,15 +97,14 @@
       transition: opacity 1.5s ease-in;
     }
 
-    /* FIXED: Dana's Image Alignment */
-.profile-img {
-  width: 220px;
-  height: 220px;
-  object-fit: cover; 
-  object-position: center 10%; /* This "pulls" the photo down to show the face */
-  border-radius: 50%;
-  border: 4px solid #ffffff;
-}
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover; 
+      object-position: center 10%;
+      border-radius: 50%;
+      border: 4px solid #ffffff;
+    }
 
     .info-img {
       width: 100%;
@@ -107,7 +120,7 @@
       white-space: normal;
       width: 0;
       margin: 12px auto;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       border-right: 2px solid transparent;
       animation: typing 3s steps(40, end) forwards;
     }
@@ -117,13 +130,12 @@
       to { width: 100%; }
     }
 
-    /* Timing for the reveal */
     .line:nth-child(2) { animation-delay: 1.5s; }
     .line:nth-child(3) { animation-delay: 4.5s; }
     .line:nth-child(4) { animation-delay: 7.5s; }
     .line:nth-child(5) { animation-delay: 10.5s; }
 
-    h1.line { font-size: 2.2rem; margin-bottom: 20px; }
+    h1.line { font-size: 2.5rem; margin-bottom: 20px; }
   </style>
 </head>
 
@@ -136,8 +148,9 @@
 
   <div class="container">
     <div id="intro-section">
-      <div class="envelope" id="envelope"></div>
+      <!-- 4. TEXT IS NOW ABOVE THE ENVELOPE -->
       <p class="invite-text" id="invite-text">You're invited! Click me</p>
+      <div class="envelope" id="envelope"></div>
     </div>
 
     <div id="invitation" class="invitation">
@@ -157,8 +170,9 @@
     const invitation = document.getElementById("invitation");
     const music = document.getElementById("bg-music");
 
+    // Play music on first click anywhere
     document.addEventListener("click", () => {
-      music.play().catch(e => console.log("Music blocked"));
+      music.play().catch(e => console.log("Music blocked by browser"));
     }, { once: true });
 
     envelope.addEventListener("click", () => {

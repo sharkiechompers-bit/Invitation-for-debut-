@@ -88,7 +88,7 @@
       font-family: "Times New Roman", Times, serif;
       font-size: 2.2rem;
       margin: 20px 0;
-      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+      text-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
     }
 
     .scroll-hint {
@@ -108,15 +108,17 @@
     /* List Image Styling */
     .list-section {
       width: 100vw;
-      background-color: #000; /* Black background behind dividers */
+      background-color: transparent; /* Changed to transparent */
       text-align: center;
     }
 
     .divider-text {
-      padding: 30px 0;
-      font-size: 1.5rem;
+      padding: 40px 0;
+      font-size: 1.8rem;
       color: #ffffff;
-      font-family: serif; /* Keeps symbols looking clean */
+      font-family: serif;
+      /* Added Red Glow Outline */
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
     }
 
     .full-screen-img {
@@ -129,21 +131,22 @@
 
     .see-you-there {
       width: 100vw;
-      padding: 80px 0;
-      background-color: #000;
+      padding: 100px 0;
+      background-color: transparent; /* Changed to transparent */
       font-size: 3.5rem;
       font-weight: bold;
       text-align: center;
       color: #ffffff;
-      text-shadow: 0 0 15px #ff0000;
+      text-shadow: 0 0 20px #ff0000, 0 0 30px #8b0000;
     }
 
     .line {
       overflow: hidden;
       white-space: normal;
-      width: 100%; /* Show fully for mobile compatibility */
+      width: 100%;
       margin: 12px auto;
       font-size: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Helps text readability on image background */
     }
 
     h1.line { font-size: 2.5rem; }
@@ -196,7 +199,7 @@
       <img src="18-bluebills.png" class="full-screen-img">
     </div>
 
-    <!-- AUNT'S MESSAGE -->
+    <!-- CLOSING MESSAGE -->
     <div class="see-you-there">
       See you there~
     </div>
